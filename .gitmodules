@@ -1,0 +1,3 @@
+[submodule "themes/the-roots-home"]
+	path = themes/the-roots-home
+	url = https://github.com/rmsubekti/the-roots-home.git
