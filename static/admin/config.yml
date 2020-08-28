@@ -8,26 +8,49 @@ publish_mode: editorial_workflow
 media_folder: "static/img"
 
 collections:
+  - name: "日记本"
+    label: "日记本"
+    folder: "content/日记本"
+    create: true
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Author", name: "author", widget: "select", options: ["enel", "sajiner"]}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Body", name: "body", widget: "markdown"}
   - name: "交易"
     label: "交易"
     folder: "content/交易"
     create: true
     fields:
-      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Author", name: "author", widget: "select", options: ["enel", "sajiner"], default: "enel"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "交易日志"
+    label: "交易日志"
+    folder: "content/交易日志"
+    create: true
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Author", name: "author", widget: "select", options: ["enel", "sajiner"], default: "enel"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "食谱"
+    label: "食谱"
+    folder: "content/食谱"
+    create: true
+    fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Author", name: "author", widget: "select", options: ["enel", "sajiner"]}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "草稿", name: "draft", widget: "boolean", default: "true"}
-  - name: "all"
-    label: "all"
+  - name: "未分类"
+    label: "未分类"
     folder: "content"
     create: true
     fields:
-      - {label: "Layout", name: "layout", widget: "hidden"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Author", name: "author", widget: "select", options: ["enel", "sajiner"]}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "草稿", name: "draft", widget: "boolean", default: "true"}
     
