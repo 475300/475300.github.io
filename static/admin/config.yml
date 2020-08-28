@@ -1,3 +1,4 @@
+# netlify cms
 backend:
   name: github
   repo: 475300/475300.github.io
@@ -5,15 +6,16 @@ backend:
 
 publish_mode: editorial_workflow
 media_folder: "static/img"
-# public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
 
 collections:
   - name: "交易"
-    label: "交易label"
+    label: "交易"
     folder: "content/交易"
     create: true
     fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Author", name: "author", widget: "select", options: ["enel", "sajiner"]}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "草稿", name: "draft", widget: "boolean", default: "true"}
