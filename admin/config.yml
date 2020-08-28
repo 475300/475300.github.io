@@ -19,3 +19,15 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "草稿", name: "draft", widget: "boolean", default: "true"}
+  - name: "all"
+    label: "all"
+    folder: "content"
+    create: true
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Author", name: "author", widget: "select", options: ["enel", "sajiner"]}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "草稿", name: "draft", widget: "boolean", default: "true"}
+    
