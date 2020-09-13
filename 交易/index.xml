@@ -45,7 +45,7 @@ twitter消息(UTC+8) 可转入(UTC-7) 可交易(UTC-7) ATOM 01-10 04:01 01-13 12
 恐惧。
 抛去对失败的恐惧，自信地直面恶魔。任何人都在某个时候要面对它们。交易不是围绕你进行的，而是赚钱。（Trading is not about you, it is about making money.）永远不要忘记这点。
 希望大家从新文件中有所收获。
-Vegas</description></item><item><title>打平所需胜率与波动比例的关系</title><link>https://475300.github.io/%E4%BA%A4%E6%98%93/%E6%89%93%E5%B9%B3%E6%89%80%E9%9C%80%E8%83%9C%E7%8E%87%E4%B8%8E%E6%B3%A2%E5%8A%A8%E6%AF%94%E4%BE%8B%E7%9A%84%E5%85%B3%E7%B3%BB/</link><pubDate>Thu, 09 Jan 2020 00:03:26 +0800</pubDate><guid>https://475300.github.io/%E4%BA%A4%E6%98%93/%E6%89%93%E5%B9%B3%E6%89%80%E9%9C%80%E8%83%9C%E7%8E%87%E4%B8%8E%E6%B3%A2%E5%8A%A8%E6%AF%94%E4%BE%8B%E7%9A%84%E5%85%B3%E7%B3%BB/</guid><description>假设每笔交易的盈利占开仓时净值的百分比是固定的，亏损时也是固定的。如每次盈利都赚10%，每次亏都亏5%。
+- Vegas</description></item><item><title>打平所需胜率与波动比例的关系</title><link>https://475300.github.io/%E4%BA%A4%E6%98%93/%E6%89%93%E5%B9%B3%E6%89%80%E9%9C%80%E8%83%9C%E7%8E%87%E4%B8%8E%E6%B3%A2%E5%8A%A8%E6%AF%94%E4%BE%8B%E7%9A%84%E5%85%B3%E7%B3%BB/</link><pubDate>Thu, 09 Jan 2020 00:03:26 +0800</pubDate><guid>https://475300.github.io/%E4%BA%A4%E6%98%93/%E6%89%93%E5%B9%B3%E6%89%80%E9%9C%80%E8%83%9C%E7%8E%87%E4%B8%8E%E6%B3%A2%E5%8A%A8%E6%AF%94%E4%BE%8B%E7%9A%84%E5%85%B3%E7%B3%BB/</guid><description>假设每笔交易的盈利占开仓时净值的百分比是固定的，亏损时也是固定的。如每次盈利都赚10%，每次亏都亏5%。
 设：
 盈亏比n，胜率x，止损时的亏损比例d
 则打平时：
