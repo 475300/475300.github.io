@@ -19,7 +19,7 @@ draft: false
 
 ## 找所有A股的代码
 
-随表找了[一个](http://www.shdjt.com/js/lib/astock.js)。
+随便找了[一个](http://www.shdjt.com/js/lib/astock.js)。
 
 ## 抓年报
 
