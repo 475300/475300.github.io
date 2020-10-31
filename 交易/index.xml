@@ -4,7 +4,7 @@
 盒饭群九月底要交的作业，每人从A股里找10个概念稀缺的股票。
 思路 抓取所有A股最近的半年报告，分词，去重、留下业务相关的名词，统计该股半年报中每个词出现在几个股票的半年报中。
 出现次数少的业务名词可能就是稀缺概念，挨个研究。
-找所有A股的代码 随表找了一个。
+找所有A股的代码 随便找了一个。
 抓年报 新浪财经有各股票的半年报列表，以人福药业（600079）为例：http://money.finance.sina.com.cn/corp/go.php/vCB_Bulletin/stockid/600079/page_type/ndbg.phtml，替换600079就能得到其它股票的半年报列表。
 用pyspider把所有股票这个列表的第一条里的半年报全爬了。
 #!/usr/bin/env python # -*- encoding: utf-8 -*- # Created on 2020-09-28 13:44:18 # Project: hefan from pyspider.libs.base_handler import * class Handler(BaseHandler): crawl_config = { } def on_start(self): symbols = [&amp;#39;300001&amp;#39;, &amp;#39;300002&amp;#39;] # 要爬的股票代码贴这儿。 for s in symbols: self.crawl(f&amp;#39;http://vip.stock.finance.sina.com.cn/corp/go.php/vCB_Bulletin/stockid/{s}/page_type/ndbg.phtml&amp;#39;, callback=self.index_page) def index_page(self, response): self.crawl(response.doc(&amp;#39;.datelist &amp;gt; ul &amp;gt; a&amp;#39;).attr.href, callback=self.detail_page) @config(priority=2) def detail_page(self, response): return { &amp;#34;url&amp;#34;: response.</description></item><item><title>Coinbase Pro上币前后价格变化</title><link>https://475300.github.io/%E4%BA%A4%E6%98%93/coinbase-pro%E4%B8%8A%E5%B8%81%E5%89%8D%E5%90%8E%E4%BB%B7%E6%A0%BC%E5%8F%98%E5%8C%96/</link><pubDate>Sat, 12 Sep 2020 18:44:00 +0800</pubDate><guid>https://475300.github.io/%E4%BA%A4%E6%98%93/coinbase-pro%E4%B8%8A%E5%B8%81%E5%89%8D%E5%90%8E%E4%BB%B7%E6%A0%BC%E5%8F%98%E5%8C%96/</guid><description>2020年Coinbase Pro的官方twitter公布的上币时间1：
