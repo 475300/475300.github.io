@@ -46,7 +46,7 @@ collections:
       - {label: "Body", name: "body", widget: "markdown"}
   - name: "未分类"
     label: "未分类"
-    folder: "content"
+    folder: "content/未分类"
     create: true
     fields:
       - {label: "Title", name: "title", widget: "string"}
