@@ -101,6 +101,8 @@ with open('C:\\Users\\-\\Desktop\\hefan\\hanlp\\hefan_300xxx.json', encoding='ut
 
 ## TODO
 
+- 换显卡后再做。
+
 ---
 
 - docker 省事。
