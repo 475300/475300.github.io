@@ -1,6 +1,7 @@
 ---
 title: "Windows 10 Ruby 开发环境(wsl2)"
 date: 2020-12-29T14:07:26+08:00
+author: "enel"
 draft: false
 ---
 启用wsl，切换到wsl 2，安装openSUSE 15.2。
