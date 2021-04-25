@@ -16,3 +16,4 @@ draft: false
 | ----------- | ----------- |
 | `Code Completion` - `Match case` | n |
 | `appearance: show method separators` | y |
+| `Code Style` - `Chained method calls` - `align when multiple` | y |
