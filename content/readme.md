@@ -6,17 +6,19 @@ draft: false
 ---
 [乐土为家]
 
-## 如何重建
+## 如何配置的
 
 GitHub Pages + HUGO + [The Root's Home 主题]
 
-配置Github Actions（[gh-pages.yml]），每次push到master后执行hugo命令更新网站。
+配置Github Actions（[gh-pages.yml]），使得每次push到master后执行hugo命令更新网站。
 
 ### Netlify CMS
 
 按[这个](https://www.netlifycms.org/docs/add-to-your-site/)配置。
 
-## 这个博客如何维护
+> 没什么用。
+
+## 如何维护
 
 1. 用git。
 2. 用[Netlify CMS](https://475300.github.io/admin)。
