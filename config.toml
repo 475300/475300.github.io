@@ -7,5 +7,7 @@ theme = "the-roots-home"
 [Params]
 Description = "enel ♥ sajiner"
 [taxonomies]
+category = "categories"
+tag = "tags"
 author = "authors"
 # theme = "hugo-theme-learn"

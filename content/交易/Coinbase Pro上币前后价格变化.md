@@ -2,7 +2,8 @@
 title: "Coinbase Pro上币前后价格变化"
 date: 2020-09-12T18:44:00+08:00
 lastmod: 2020-09-16T10:17:00+08:00
-author: "enel"
+authors:
+    - "enel"
 draft: false
 ---
 2020年[Coinbase Pro的官方twitter](https://twitter.com/CoinbasePro)公布的上币时间[^1]：

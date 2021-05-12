@@ -1,7 +1,8 @@
 ---
 title: "readme"
 date: 2021-04-25T21:58:00+08:00
-author: "enel"
+authors:
+    - "enel"
 tags: 
     - "todo"
 draft: false

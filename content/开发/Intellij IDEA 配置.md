@@ -1,7 +1,8 @@
 ---
 title: "Intellij IDEA 配置"
 date: 2021-04-06T18:31:00+08:00
-author: "enel"
+authors:
+    - "enel"
 draft: false
 ---
 

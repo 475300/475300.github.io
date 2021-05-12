@@ -1,7 +1,8 @@
 ---
 title: "A股年报分词找稀有概念[未完成]"
 date: 2020-10-09T19:15:00+08:00
-author: "enel"
+authors:
+    - "enel"
 tags: 
     - "todo"
 draft: false
