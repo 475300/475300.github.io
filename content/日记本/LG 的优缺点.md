@@ -1,6 +1,8 @@
 ---
 title: "LG 的优缺点"
 date: 2021-05-14T21:16:26+08:00
+authors:
+    - "sajiner"
 draft: false
 ---
 
