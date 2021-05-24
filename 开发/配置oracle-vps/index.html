@@ -1,0 +1,47 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><title>配置Oracle VPS - 乐土为家</title><meta name=description content="按这篇文章申请了免费的Oracle Cloud、配置了子网的安全规则。 配置VPS 免费的只支持 Ubuntu、CentOS、Oracle Linux"><link rel=canonical href=https://475300.github.io/%E5%BC%80%E5%8F%91/%E9%85%8D%E7%BD%AEoracle-vps/><meta property="og:title" content="配置Oracle VPS"><meta property="og:type" content="article"><meta property="og:url" content="https://475300.github.io/%E5%BC%80%E5%8F%91/%E9%85%8D%E7%BD%AEoracle-vps/"><meta property="og:description" content="按这篇文章申请了免费的Oracle Cloud、配置了子网的安全规则。 配置VPS 免费的只支持 Ubuntu、CentOS、Oracle Linux"><meta property="og:site_name" content="乐土为家"><link rel=stylesheet href=https://475300.github.io/css/main.min.46626abaa02257c4c323c7d2f1f872e4a75032f4ab4bea8ceb62daf52bfc81a2.css integrity="sha256-RmJquqAiV8TDI8fS8fhy5KdQMvSrS+qM62La9Sv8gaI="><meta name=generator content="Hugo 0.83.1"><script type=module src=https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js></script><script nomodule src=https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js></script></head><body><header class=site-header><nav class=site-nav role=navigation aria-label=breadcrumb><ol itemscope itemtype=https://schema.org/BreadcrumbList class=breadcrumb><li class=breadcrumb-item itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemtype=https://schema.org/Thing itemprop=item href=https://475300.github.io/><span itemprop=name>乐土为家</span></a><meta itemprop=position content="0"></li>/<li class=breadcrumb-item itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemtype=https://schema.org/Thing itemprop=item href=https://475300.github.io/%E5%BC%80%E5%8F%91/><span itemprop=name>开发</span></a><meta itemprop=position content="0"></li>/<li class="breadcrumb-item active hidden" aria-current=page itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemtype=https://schema.org/Thing itemprop=item href=https://475300.github.io/%E5%BC%80%E5%8F%91/%E9%85%8D%E7%BD%AEoracle-vps/><span itemprop=name>配置Oracle VPS</span></a><meta itemprop=position content="1"></li></ol></nav><h1 class="site-title hidden"><a href=https://475300.github.io/>乐土为家</a></h1></header><main id=content><article role=article class="content post h-entry" itemscope itemtype=http://schema.org/BlogPosting><header class=post-header><h2 class=post-title itemprop="name headline">配置Oracle VPS</h2><span class=post-meta><time class=date-published datetime=2021-05-24T15:29:04+07:00 itemprop=datePublished>2021.5.24，星期一</time>
+<span><ul id=authors><li><a href=https://475300.github.io/authors/enel>@enel</a></li></ul><ul id=tags><li><a href=https://475300.github.io/tags/linux>#Linux</a></li><li><a href=https://475300.github.io/tags/ubuntu>#Ubuntu</a></li><li><a href=https://475300.github.io/tags/iptables>#iptables</a></li><li><a href=https://475300.github.io/tags/%E9%98%B2%E7%81%AB%E5%A2%99>#防火墙</a></li><li><a href=https://475300.github.io/tags/vps>#VPS</a></li></ul></span></span></header><div class=post-content itemprop=articleBody><p>按这篇<a href=https://xunihao.net/867.html#Oracle-CloudAWS target=_blank rel="nofollow noreferrer noopener">文章</a>申请了免费的Oracle Cloud、配置了子网的安全规则。</p><h2 id=配置vps>配置VPS</h2><p>免费的只支持 Ubuntu、CentOS、Oracle Linux，因为 CentOS 似乎前途暗淡，只能选 Ubuntu(20.04) 了。</p><p>创建实例后直接用 Windows Terminal 通过 SSH 登录。</p><blockquote><p>Windows Terminal的快捷键：<br><code>alt+shift++</code>：竖直分割窗口<br><code>alt+shift+-</code>：水平分割窗口<br><code>alt+↑/↓/←/→</code>：在窗口间移动焦点<br><code>alt+shift+↑/↓/←/→</code>：调整窗口大小</p></blockquote><p>导入私钥时可能需要参考的<a href=https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement#user-key-generation target=_blank rel="nofollow noreferrer noopener">链接1</a>、<a href=https://stackoverflow.com/questions/52113738/starting-ssh-agent-on-windows-10-fails-unable-to-start-ssh-agent-service-erro target=_blank rel="nofollow noreferrer noopener">链接2</a>。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 用SSH登录</span>
+ssh ubuntu@168.138.33.146
+</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 安装 tldr、zsh、NodeJS、npm：</span>
+sudo apt install tldr zsh nodejs npm
+</code></pre></div><p>安装 oh-my-zsh、rvm、Ruby、Rails、Yarn。</p><p>因为没有root密码，并且改root密码后不能用，所以无法用<code>chsh</code>命令把zsh设置成默认的shell。不过可以参考<a href=http://c.biancheng.net/linux/chsh.html target=_blank rel="nofollow noreferrer noopener">chsh -s 到底修改了哪里</a>直接改。</p><p>按<a href=https://guides.rubyonrails.org/getting_started.html#hello-rails-bang target=_blank rel="nofollow noreferrer noopener">Getting Started with Rails</a>操作到"4.1 Starting up the Web Server"这一步。启动服务器的命令要改为<code>rails server --binding=0.0.0.0</code>，否则只能本地访问。</p><h3 id=配置防火墙>配置防火墙</h3><p>现在这个系统默认带了两个iptables的前端，即netfilter-persistent和ufw，而且默认两个都是enable的。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 查看所有service的状态</span>
+service --status-all
+</code></pre></div><p>iptables的规则是有顺序的，用 ufw 的话，因为规则是添加在 netfilter-persistent 添加的规则（就是/etc/iptables/rules.v4）后面，会被后者的规则先匹配到而起不到作用。</p><p>又 ufw.service 启动还有问题<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>，所以不用 ufw。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 这个命令能看到当前的配置</span>
+iptables -L -n
+
+<span style=color:#75715e># 这个能导出iptables</span>
+iptables-save &gt; iptables.bak
+
+<span style=color:#75715e># 这个能导入iptables</span>
+iptables-restore &lt; iptables.bak
+</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 编辑iptables的规则。netfilter-persistent操作的就是这个。</span>
+vim /etc/iptables/rules.v4
+</code></pre></div><p>按下面注释说明的修改</p><pre><code>*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [463:49013]
+:InstanceServices - [0:0]
+-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -p icmp -j ACCEPT
+-A INPUT -i lo -j ACCEPT
+-A INPUT -p udp --sport 123 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
+-A INPUT -p tcp --dport 3000 -j ACCEPT
+-A INPUT -j REJECT --reject-with icmp-host-prohibited
+# 在这添加下面这句，开放puma的默认端口3000
+-A INPUT -p tcp --dport 3000 -j ACCEPT
+-A FORWARD -j REJECT --reject-with icmp-host-prohibited
+-A OUTPUT -d 169.254.0.0/16 -j InstanceServices
+...
+</code></pre><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 使修改不重启就生效</span>
+iptables-restore &lt; /etc/iptables/rules.v4
+</code></pre></div><h3 id=可能用到的其他命令>可能用到的其他命令</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 切换成root</span>
+sudo -i
+
+scp ubuntu@168.138.33.146:/home/ubuntu/iptables.txt .
+
+<span style=color:#75715e># 当前shell</span>
+echo $0
+</code></pre></div><h2 id=其他>其他</h2><p>配置好后在Oracle Clould的控制台中创建快照： “More Actions-Create Custom Image”。</p><hr><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p><a href=https://devtidbits.com/2019/07/31/ufw-service-not-loading-after-a-reboot/ target=_blank rel="nofollow noreferrer noopener">Fix ufw service not loading after a reboot</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></div></article><div class=pagination><div class=prev><a href=https://475300.github.io/%E5%BC%80%E5%8F%91/%E5%B0%8F%E6%8A%80%E5%B7%A7/>Previous Post</a></div><div class=next><a href=https://475300.github.io/%E5%BC%80%E5%8F%91/netfilter-persistent%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B%E6%A2%B3%E7%90%86/>Next Post</a></div></div></main><footer class=site-footer><span class=left><a href=/authors>Authors</a>
+.
+<a href=/tags>Tags</a></span>
+<span class=right><em>乐土为家</em></span></footer></body></html>
