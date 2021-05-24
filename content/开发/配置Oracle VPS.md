@@ -114,8 +114,6 @@ echo $0
 
 配置好后在Oracle Clould的控制台中创建快照： “More Actions-Create Custom Image”。
 
-----
-
 [^1]: 没细看前面几行的"ACCEPT"为什么没效果。
 [^2]: [How to open Ports on Iptables in a Linux server](https://www.e2enetworks.com/help/knowledge-base/how-to-open-ports-on-iptables-in-a-linux-server/)。
 [^3]: [Fix ufw service not loading after a reboot](https://devtidbits.com/2019/07/31/ufw-service-not-loading-after-a-reboot/)
