@@ -25,6 +25,12 @@ GitHub Pages + HUGO + [The Root's Home 主题]
 
 ## 如何维护
 
+### 同步代码
+
+主题是子模块，所以`git pull --recurse-submodules`。
+
+### 发新文章
+
 1. 用git。
 2. 用[Netlify CMS](https://475300.github.io/admin)。
     - 在[这里](https://github.com/475300/475300.github.io/blob/master/static/admin/config.yml)配置CMS。
