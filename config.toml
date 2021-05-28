@@ -3,7 +3,7 @@ languageCode = "zh-cn"
 title = "乐土为家"
 pluralizelisttitles = "false"
 hasCJKLanguage = "true"
-theme = "the-roots-home"
+theme = ["the-roots-home", "hugo-easy-gallery"]
 [Params]
 Description = "enel ♥ sajiner"
 [taxonomies]
