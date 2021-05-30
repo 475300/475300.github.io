@@ -74,6 +74,10 @@ lsof -i :80
 
 <span style=color:#75715e># 所有服务的状态</span>
 sudo service --status-all
+</code></pre></div><h2 id=mongodb>mongoDB</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 查找content中包含“桂西北小哥”的</span>
+db.weibo.find<span style=color:#f92672>({</span>content: <span style=color:#f92672>{</span>$regex : <span style=color:#e6db74>&#34;桂西北小哥&#34;</span><span style=color:#f92672>}})</span>
+</code></pre></div><h2 id=crontab>crontab</h2><p>→ <a href=https://crontab.guru/#*/6_*_*_*_* target=_blank rel="nofollow noreferrer noopener">Crontab.guru</a></p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 每6分钟执行一次</span>
+*/6 * * * * cd ~/weibo/weibo-crawler <span style=color:#f92672>&amp;&amp;</span> python weibo.py
 </code></pre></div></div></article><div class=pagination><div class=prev><a href=https://475300.github.io/%E5%BC%80%E5%8F%91/windows-10-ruby-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83wsl2/>Previous Post</a></div><div class=next><a href=https://475300.github.io/%E5%BC%80%E5%8F%91/%E9%85%8D%E7%BD%AEoracle-vps/>Next Post</a></div></div></main><footer class=site-footer><span class=left><a href=/authors>Authors</a>
 .
 <a href=/tags>Tags</a></span>
