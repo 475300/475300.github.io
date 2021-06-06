@@ -98,11 +98,26 @@ vim /etc/iptables/rules.v4
 iptables-restore < /etc/iptables/rules.v4
 ```
 
+### SSL
+
+用[Let's Encrypt](https://letsencrypt.org/)的免费证书。用[acme.sh](https://acme.sh/)配置。
+
+``` bash
+acme.sh --issue --dns dns_ali -d bitichong.tech  -d '*.bitichong.tech'
+
+acme.sh --install-cert -d bitichong.tech \
+--key-file       /etc/nginx/ssl/bitichong.tech.key  \
+--fullchain-file /etc/nginx/ssl/fullchain.cer \
+--reloadcmd     "service nginx force-reload"
+```
+
+修改nginx配置：http跳转、ssl证书地址等。
+
 ### 可能用到的其他命令
 
 ``` bash
 # 切换成root
-sudo -i
+sudo -s
 
 scp ubuntu@168.138.33.146:/home/ubuntu/iptables.txt .
 
