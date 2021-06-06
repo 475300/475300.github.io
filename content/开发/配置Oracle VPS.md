@@ -113,6 +113,8 @@ acme.sh --install-cert -d bitichong.tech \
 
 修改nginx配置：http跳转、ssl证书地址等。
 
+iptables 开放443端口。
+
 ### 可能用到的其他命令
 
 ``` bash
