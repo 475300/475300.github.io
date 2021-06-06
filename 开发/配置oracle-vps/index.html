@@ -34,8 +34,14 @@ vim /etc/iptables/rules.v4
 ...
 </code></pre><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 使修改不重启就生效</span>
 iptables-restore &lt; /etc/iptables/rules.v4
-</code></pre></div><h3 id=可能用到的其他命令>可能用到的其他命令</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 切换成root</span>
-sudo -i
+</code></pre></div><h3 id=ssl>SSL</h3><p>用<a href=https://letsencrypt.org/ target=_blank rel="nofollow noreferrer noopener">Let&rsquo;s Encrypt</a>的免费证书。用<a href=https://acme.sh/ target=_blank rel="nofollow noreferrer noopener">acme.sh</a>配置。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>acme.sh --issue --dns dns_ali -d bitichong.tech  -d <span style=color:#e6db74>&#39;*.bitichong.tech&#39;</span>
+
+acme.sh --install-cert -d bitichong.tech <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>--key-file       /etc/nginx/ssl/bitichong.tech.key  <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>--fullchain-file /etc/nginx/ssl/fullchain.cer <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>--reloadcmd     <span style=color:#e6db74>&#34;service nginx force-reload&#34;</span>
+</code></pre></div><p>修改nginx配置：http跳转、ssl证书地址等。</p><h3 id=可能用到的其他命令>可能用到的其他命令</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 切换成root</span>
+sudo -s
 
 scp ubuntu@168.138.33.146:/home/ubuntu/iptables.txt .
 
