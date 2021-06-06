@@ -40,7 +40,7 @@ acme.sh --install-cert -d bitichong.tech <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>--key-file       /etc/nginx/ssl/bitichong.tech.key  <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>--fullchain-file /etc/nginx/ssl/fullchain.cer <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>--reloadcmd     <span style=color:#e6db74>&#34;service nginx force-reload&#34;</span>
-</code></pre></div><p>修改nginx配置：http跳转、ssl证书地址等。</p><h3 id=可能用到的其他命令>可能用到的其他命令</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 切换成root</span>
+</code></pre></div><p>修改nginx配置：http跳转、ssl证书地址等。</p><p>iptables 开放443端口。</p><h3 id=可能用到的其他命令>可能用到的其他命令</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 切换成root</span>
 sudo -s
 
 scp ubuntu@168.138.33.146:/home/ubuntu/iptables.txt .
