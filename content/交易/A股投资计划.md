@@ -21,7 +21,10 @@ draft: true
 
 ## 个股
 
-用下面的指标找规律，制定相应的止损止盈策略（todo）。
+选股：
+
+- [第七章：最重要的日内交易策略](https://docs.google.com/document/d/1haZC4yHW9okyQHJIJ-b8MPhs6OyliRS6Mx28x8Fg95M/edit#heading=h.szq52nxhzkxt)
+- 用下面的指标找规律，制定相应的止损止盈策略（todo）。
 
 同花顺远航版自定义指标[文档](http://quant.10jqka.com.cn/platform/html/help-api-yuan.html?t=-10#843/0)。
 
@@ -94,3 +97,7 @@ draw.line(COUNT_MAX_LOWER*-1, begin, COUNT_MAX_LOWER*-1, end, "#808080")
 draw.stick("连续", "#2196F3", 2)
 draw.stick("连续（极限）", "#FF9800", 2)
 ```
+
+---
+
+![股市跳大神](/img/2021-06-07-stock-market-trend.jpg)
