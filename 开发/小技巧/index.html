@@ -53,11 +53,13 @@
 [随便什么]: # &#34;这也可以用作注释。&#34;
 [随便什么]: # (这也可以用作注释。)
 </code></pre></div><h2 id=intellij-idea中markdown中添加todo>IntelliJ IDEA中markdown中添加<code>TODO</code></h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-markdown data-lang=markdown>[//]: # &#34;todo ← 这个todo会被识别。&#34;
-</code></pre></div><h2 id=gitignore配置idea文件夹里的内容>.gitignore配置.idea文件夹里的内容</h2><p>参照 Intellij IDEA官方指南：<a href=https://intellij-support.jetbrains.com/hc/en-us/articles/206544839 target=_blank rel="nofollow noreferrer noopener">How to manage projects under Version Control Systems</a>来配置。</p><p>可以用<code>.ignore</code>插件。</p><h2 id=markdown-换行>markdown 换行</h2><ul><li><code>&lt;/br></code></li><li>行尾加两个空格</li><li>行尾加<code>\</code></li></ul><h2 id=windows-terminal-快捷键>Windows Terminal 快捷键</h2><blockquote><p><code>alt+shift++</code>：竖直分割窗口<br><code>alt+shift+-</code>：水平分割窗口<br><code>alt+↑/↓/←/→</code>：在窗口间移动焦点<br><code>alt+shift+↑/↓/←/→</code>：调整窗口大小</p></blockquote><h2 id=linuxubuntu2004下>Linux(Ubuntu20.04下)</h2><p>tldr - Simplified and community-driven man pages
-htop - interactive process viewer
-tree - list contents of directories in a tree-like format
-which - locate a command
-type - Display the kind of command the shell will execute</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 当前shell</span>
+</code></pre></div><h2 id=gitignore配置idea文件夹里的内容>.gitignore配置.idea文件夹里的内容</h2><p>参照 Intellij IDEA官方指南：<a href=https://intellij-support.jetbrains.com/hc/en-us/articles/206544839 target=_blank rel="nofollow noreferrer noopener">How to manage projects under Version Control Systems</a>来配置。</p><p>可以用<code>.ignore</code>插件。</p><h2 id=markdown-换行>markdown 换行</h2><ul><li><code>&lt;/br></code></li><li>行尾加两个空格</li><li>行尾加<code>\</code></li></ul><h2 id=windows-terminal-快捷键>Windows Terminal 快捷键</h2><blockquote><p><code>alt+shift++</code>：竖直分割窗口<br><code>alt+shift+-</code>：水平分割窗口<br><code>alt+↑/↓/←/→</code>：在窗口间移动焦点<br><code>alt+shift+↑/↓/←/→</code>：调整窗口大小</p></blockquote><h2 id=window10>Window10</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=color:#75715e># 显示powershell的代理配置</span>
+netsh winhttp show proxy
+<span style=color:#75715e># 设置代理</span>
+netsh winhttp set proxy <span style=color:#e6db74>&#34;127.0.0.1:7890&#34;</span>
+<span style=color:#75715e># 访问网站，测试代理通不通</span>
+Invoke-WebRequest http<span style=color:#960050;background-color:#1e0010>:</span>//google.com
+</code></pre></div><h2 id=linuxubuntu2004下>Linux(Ubuntu20.04下)</h2><p>tldr - Simplified and community-driven man pages<br>htop - interactive process viewer<br>tree - list contents of directories in a tree-like format<br>which - locate a command<br>type - Display the kind of command the shell will execute<br>exec - This causes the program that is currently being run by the calling process to be replaced with a new program, with newly initialized stack, heap, and (initialized and uninitialized) data segments.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 当前shell</span>
 echo $0
 
 <span style=color:#75715e># 显示iptables的配置</span>
@@ -74,6 +76,18 @@ lsof -i :80
 
 <span style=color:#75715e># 所有服务的状态</span>
 sudo service --status-all
+
+<span style=color:#75715e># 后台运行，终端关闭后会停止</span>
+python weibo.py &amp;
+
+<span style=color:#75715e># 后台运行，终端关闭后不会停止</span>
+nohup python weibo.py &amp;
+
+<span style=color:#75715e># 将标准输出重定向到a.txt </span>
+mongo &gt;&gt; a.txt
+
+<span style=color:#75715e># 将输出写入到标准输出和a.txt。`-a`是append</span>
+mongo | tee -a a.txt
 </code></pre></div><h2 id=mongodb>mongoDB</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 查找content中包含“桂西北小哥”的</span>
 db.weibo.find<span style=color:#f92672>({</span>content: <span style=color:#f92672>{</span>$regex : <span style=color:#e6db74>&#34;桂西北小哥&#34;</span><span style=color:#f92672>}})</span>
 </code></pre></div><h2 id=crontab>crontab</h2><p>→ <a href=https://crontab.guru/#*/6_*_*_*_* target=_blank rel="nofollow noreferrer noopener">Crontab.guru</a></p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 每6分钟执行一次</span>
