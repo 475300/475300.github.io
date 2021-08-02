@@ -1,29 +1,223 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><title>readme - 乐土为家</title><meta name=description content="乐土为家 如何配置的 GitHub Pages + HUGO + The Root&rsquo;s Home 主题 配置Github Actions（gh-pages.yml），使得每次push到master后执行hug"><link rel=canonical href=https://475300.github.io/readme/><meta property="og:title" content="readme"><meta property="og:type" content="article"><meta property="og:url" content="https://475300.github.io/readme/"><meta property="og:description" content="乐土为家 如何配置的 GitHub Pages + HUGO + The Root&rsquo;s Home 主题 配置Github Actions（gh-pages.yml），使得每次push到master后执行hug"><meta property="og:site_name" content="乐土为家"><link rel=stylesheet href=https://475300.github.io/css/main.min.46626abaa02257c4c323c7d2f1f872e4a75032f4ab4bea8ceb62daf52bfc81a2.css integrity="sha256-RmJquqAiV8TDI8fS8fhy5KdQMvSrS+qM62La9Sv8gaI="><meta name=generator content="Hugo 0.83.1"><script type=module src=https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js></script><script nomodule src=https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js></script></head><body><header class=site-header><nav class=site-nav role=navigation aria-label=breadcrumb><ol itemscope itemtype=https://schema.org/BreadcrumbList class=breadcrumb><li class=breadcrumb-item itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemtype=https://schema.org/Thing itemprop=item href=https://475300.github.io/><span itemprop=name>乐土为家</span></a><meta itemprop=position content="0"></li>/<li class="breadcrumb-item active hidden" aria-current=page itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemtype=https://schema.org/Thing itemprop=item href=https://475300.github.io/readme/><span itemprop=name>readme</span></a><meta itemprop=position content="1"></li></ol></nav><h1 class="site-title hidden"><a href=https://475300.github.io/>乐土为家</a></h1></header><main id=content><article role=article class="content post h-entry" itemscope itemtype=http://schema.org/BlogPosting><header class=post-header><h2 class=post-title itemprop="name headline">readme</h2><span class=post-meta><time class=date-published datetime=2021-04-25T21:58:00+07:00 itemprop=datePublished>2021.4.25，星期天</time>
-<span><ul id=authors><li><a href=https://475300.github.io/authors/enel>@enel</a></li></ul><ul id=tags><li><a href=https://475300.github.io/tags/todo>#todo</a></li></ul></span></span></header><div class=post-content itemprop=articleBody><p><a href=https://475300.github.io/ target=_blank rel="nofollow noreferrer noopener">乐土为家</a></p><h2 id=如何配置的>如何配置的</h2><p>GitHub Pages + HUGO + <a href=https://github.com/475300/the-roots-home target=_blank rel="nofollow noreferrer noopener">The Root&rsquo;s Home 主题</a></p><p>配置Github Actions（<a href=https://github.com/475300/475300.github.io/blob/master/.github/workflows/gh-pages.yml target=_blank rel="nofollow noreferrer noopener">gh-pages.yml</a>），使得每次push到master后执行hugo命令更新网站。</p><p>(本地预览时用<code>hugo server --minify</code>命令，跟 gh-pages.yml 中保持一致。)</p><h3 id=netlify-cms>Netlify CMS</h3><p>按<a href=https://www.netlifycms.org/docs/add-to-your-site/ target=_blank rel="nofollow noreferrer noopener">这个</a>配置。</p><blockquote><p>没什么用。</p></blockquote><h2 id=如何维护>如何维护</h2><h3 id=同步代码>同步代码</h3><p>主题是子模块，所以<code>git pull --recurse-submodules</code>。</p><h3 id=发新文章>发新文章</h3><ol><li>用git。</li><li>用<a href=https://475300.github.io/admin target=_blank rel="nofollow noreferrer noopener">Netlify CMS</a>。<ul><li>在<a href=https://github.com/475300/475300.github.io/blob/master/static/admin/config.yml target=_blank rel="nofollow noreferrer noopener">这里</a>配置CMS。</li></ul></li></ol><h3 id=shortcodes>shortcodes</h3><p>hugo可以用<a href=https://gohugo.io/content-management/shortcodes/ target=_blank rel="nofollow noreferrer noopener">shortcodes</a>扩展markdown，官方内置了<a href=https://gohugo.io/content-management/shortcodes/ target=_blank rel="nofollow noreferrer noopener">这些</a>，我们添加了下面这些：</p><h4 id=video>video</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-md data-lang=md>{{&lt;<span style=color:#f92672>video</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/img/2020-09-09-猫-02.mp4&#34;</span> <span style=color:#a6e22e>width</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;200px&#34;</span>&gt;}}
-</code></pre></div><p><video controls width=200px>
-<source src=/img/2020-09-09-%e7%8c%ab-02.mp4 type=video/mp4></video></p><h4 id=mermaid>mermaid</h4><p>→ <a href=https://mermaid-js.github.io/mermaid/#/ target=_blank rel="nofollow noreferrer noopener">官方文档</a></p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-md data-lang=md>{{&lt;<span style=color:#f92672>mermaid</span>&gt;}}
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<title>readme - 乐土为家</title>
+<meta name=description content="乐土为家 如何配置的 GitHub Pages + HUGO + The Root&rsquo;s Home 主题 配置Github Actions（gh-pages.yml），使得每次push到master后执行hug">
+<link rel=canonical href=https://475300.github.io/readme/>
+<meta property="og:title" content="readme">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://475300.github.io/readme/">
+<meta property="og:description" content="乐土为家 如何配置的 GitHub Pages + HUGO + The Root&rsquo;s Home 主题 配置Github Actions（gh-pages.yml），使得每次push到master后执行hug">
+<meta property="og:site_name" content="乐土为家">
+<link rel=stylesheet href=https://475300.github.io/css/main.min.46626abaa02257c4c323c7d2f1f872e4a75032f4ab4bea8ceb62daf52bfc81a2.css integrity="sha256-RmJquqAiV8TDI8fS8fhy5KdQMvSrS+qM62La9Sv8gaI=">
+<meta name=generator content="Hugo 0.86.1">
+<script type=module src=https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js></script>
+<script nomodule src=https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js></script>
+</head>
+<body><header class=site-header>
+<nav class=site-nav role=navigation aria-label=breadcrumb>
+<ol itemscope itemtype=https://schema.org/BreadcrumbList class=breadcrumb><li class=breadcrumb-item itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem>
+<a itemtype=https://schema.org/Thing itemprop=item href=https://475300.github.io/>
+<span itemprop=name>乐土为家</span>
+</a>
+<meta itemprop=position content="0">
+</li>/<li class="breadcrumb-item active hidden" aria-current=page itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem>
+<a itemtype=https://schema.org/Thing itemprop=item href=https://475300.github.io/readme/>
+<span itemprop=name>readme</span>
+</a>
+<meta itemprop=position content="1">
+</li></ol>
+</nav>
+<h1 class="site-title hidden">
+<a href=https://475300.github.io/>乐土为家</a>
+</h1>
+</header>
+<main id=content>
+<article role=article class="content post h-entry" itemscope itemtype=http://schema.org/BlogPosting>
+<header class=post-header>
+<h2 class=post-title itemprop="name headline">readme</h2>
+<span class=post-meta>
+<time class=date-published datetime=2021-04-25T21:58:00+07:00 itemprop=datePublished>
+2021.4.25，星期天
+</time>
+<span>
+<ul id=authors>
+<li> <a href=https://475300.github.io/authors/enel>@enel</a> </li>
+</ul>
+<ul id=tags>
+<li> <a href=https://475300.github.io/tags/todo>#todo</a> </li>
+</ul>
+</span>
+</span>
+</header>
+<div class=post-content itemprop=articleBody>
+<p><a href=https://475300.github.io/ target=_blank rel="nofollow noreferrer noopener">乐土为家</a></p>
+<h2 id=如何配置的>如何配置的</h2>
+<p>GitHub Pages + HUGO + <a href=https://github.com/475300/the-roots-home target=_blank rel="nofollow noreferrer noopener">The Root&rsquo;s Home 主题</a></p>
+<p>配置Github Actions（<a href=https://github.com/475300/475300.github.io/blob/master/.github/workflows/gh-pages.yml target=_blank rel="nofollow noreferrer noopener">gh-pages.yml</a>），使得每次push到master后执行hugo命令更新网站。</p>
+<p>(本地预览时用<code>hugo server --minify</code>命令，跟 gh-pages.yml 中保持一致。)</p>
+<h3 id=netlify-cms>Netlify CMS</h3>
+<p>按<a href=https://www.netlifycms.org/docs/add-to-your-site/ target=_blank rel="nofollow noreferrer noopener">这个</a>配置。</p>
+<blockquote>
+<p>没什么用。</p>
+</blockquote>
+<h2 id=如何维护>如何维护</h2>
+<h3 id=同步代码>同步代码</h3>
+<p>主题是子模块，所以<code>git pull --recurse-submodules</code>。</p>
+<h3 id=发新文章>发新文章</h3>
+<ol>
+<li>用git。</li>
+<li>用<a href=https://475300.github.io/admin target=_blank rel="nofollow noreferrer noopener">Netlify CMS</a>。
+<ul>
+<li>在<a href=https://github.com/475300/475300.github.io/blob/master/static/admin/config.yml target=_blank rel="nofollow noreferrer noopener">这里</a>配置CMS。</li>
+</ul>
+</li>
+</ol>
+<h3 id=shortcodes>shortcodes</h3>
+<p>hugo可以用<a href=https://gohugo.io/content-management/shortcodes/ target=_blank rel="nofollow noreferrer noopener">shortcodes</a>扩展markdown，官方内置了<a href=https://gohugo.io/content-management/shortcodes/ target=_blank rel="nofollow noreferrer noopener">这些</a>，我们添加了下面这些：</p>
+<h4 id=video>video</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-md data-lang=md>{{&lt;<span style=color:#f92672>video</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/img/2020-09-09-猫-02.mp4&#34;</span> <span style=color:#a6e22e>width</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;200px&#34;</span>&gt;}}
+</code></pre></div>
+<p>
+<video controls width=200px>
+<source src=/img/2020-09-09-%e7%8c%ab-02.mp4 type=video/mp4>
+</video>
+</p>
+<h4 id=mermaid>mermaid</h4>
+<p>→ <a href=https://mermaid-js.github.io/mermaid/#/ target=_blank rel="nofollow noreferrer noopener">官方文档</a></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-md data-lang=md>{{&lt;<span style=color:#f92672>mermaid</span>&gt;}}
 graph TD;
     A--&gt;B;
     A--&gt;C;
     B--&gt;D;
     C--&gt;D;
 {{&lt;/<span style=color:#f92672>mermaid</span>&gt;}}
-</code></pre></div><script async src=https://unpkg.com/mermaid@8.10.1/dist/mermaid.min.js></script><div class=mermaid>graph TD;
+</code></pre></div><script async src=https://unpkg.com/mermaid@8.10.1/dist/mermaid.min.js></script>
+<div class=mermaid>
+graph TD;
 A-->B;
 A-->C;
 B-->D;
-C-->D;</div><h4 id=gallery>gallery</h4><p>→ <a href=https://github.com/liwenyip/hugo-easy-gallery target=_blank rel="nofollow noreferrer noopener">官方文档</a></p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-md data-lang=md>{{&lt;<span style=color:#f92672>allery</span>&gt;}}
+C-->D;
+</div>
+<h4 id=gallery>gallery</h4>
+<p>→ <a href=https://github.com/liwenyip/hugo-easy-gallery target=_blank rel="nofollow noreferrer noopener">官方文档</a></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-md data-lang=md>{{&lt;<span style=color:#f92672>allery</span>&gt;}}
 {{&lt;<span style=color:#f92672>igure</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/img/2021-05-27-launcher-1.webp&#34;</span> <span style=color:#a6e22e>width</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;110px&#34;</span> <span style=color:#a6e22e>caption</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;launcher-1&#34;</span>&gt;}}
 {{&lt;<span style=color:#f92672>igure</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/img/2021-05-27-launcher-2.webp&#34;</span> <span style=color:#a6e22e>width</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;110px&#34;</span> <span style=color:#a6e22e>caption</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;launcher-2&#34;</span>&gt;}}
 {{&lt;<span style=color:#f92672>igure</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/img/2021-05-27-launcher-3.webp&#34;</span> <span style=color:#a6e22e>width</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;110px&#34;</span> <span style=color:#a6e22e>caption</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;launcher-3&#34;</span>&gt;}}
 {{&lt;<span style=color:#f92672>igure</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/img/2021-05-27-launcher-4.webp&#34;</span> <span style=color:#a6e22e>width</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;110px&#34;</span> <span style=color:#a6e22e>caption</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;launcher-4&#34;</span>&gt;}}
 {{&lt;/<span style=color:#f92672>gallery</span>&gt;}}
 {{&lt;<span style=color:#f92672>load-photoswipe</span>&gt;}}
-</code></pre></div><p><div class="gallery caption-position-bottom caption-effect-slide hover-effect-zoom hover-transition" itemscope itemtype=http://schema.org/ImageGallery><link rel=stylesheet href=/css/hugo-easy-gallery.css><div class=box style=max-width:110px><figure itemprop=associatedMedia itemscope itemtype=http://schema.org/ImageObject><div class=img style=background-image:url(/img/2021-05-27-launcher-1.webp)><img itemprop=thumbnail src=/img/2021-05-27-launcher-1.webp alt=launcher-1></div><a href=/img/2021-05-27-launcher-1.webp itemprop=contentUrl></a><figcaption><p>launcher-1</p></figcaption></figure></div><div class=box style=max-width:110px><figure itemprop=associatedMedia itemscope itemtype=http://schema.org/ImageObject><div class=img style=background-image:url(/img/2021-05-27-launcher-2.webp)><img itemprop=thumbnail src=/img/2021-05-27-launcher-2.webp alt=launcher-2></div><a href=/img/2021-05-27-launcher-2.webp itemprop=contentUrl></a><figcaption><p>launcher-2</p></figcaption></figure></div><div class=box style=max-width:110px><figure itemprop=associatedMedia itemscope itemtype=http://schema.org/ImageObject><div class=img style=background-image:url(/img/2021-05-27-launcher-3.webp)><img itemprop=thumbnail src=/img/2021-05-27-launcher-3.webp alt=launcher-3></div><a href=/img/2021-05-27-launcher-3.webp itemprop=contentUrl></a><figcaption><p>launcher-3</p></figcaption></figure></div><div class=box style=max-width:110px><figure itemprop=associatedMedia itemscope itemtype=http://schema.org/ImageObject><div class=img style=background-image:url(/img/2021-05-27-launcher-4.webp)><img itemprop=thumbnail src=/img/2021-05-27-launcher-4.webp alt=launcher-4></div><a href=/img/2021-05-27-launcher-4.webp itemprop=contentUrl></a><figcaption><p>launcher-4</p></figcaption></figure></div></div><script src=https://code.jquery.com/jquery-1.12.4.min.js integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin=anonymous></script><script src=/js/load-photoswipe.js></script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin=anonymous><script src=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin=anonymous></script><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+</code></pre></div><p>
+<div class="gallery caption-position-bottom caption-effect-slide hover-effect-zoom hover-transition" itemscope itemtype=http://schema.org/ImageGallery>
+<link rel=stylesheet href=/css/hugo-easy-gallery.css>
+<div class=box style=max-width:110px>
+<figure itemprop=associatedMedia itemscope itemtype=http://schema.org/ImageObject>
+<div class=img style=background-image:url(/img/2021-05-27-launcher-1.webp)>
+<img itemprop=thumbnail src=/img/2021-05-27-launcher-1.webp alt=launcher-1>
+</div>
+<a href=/img/2021-05-27-launcher-1.webp itemprop=contentUrl></a>
+<figcaption>
+<p>launcher-1</p>
+</figcaption>
+</figure>
+</div>
+<div class=box style=max-width:110px>
+<figure itemprop=associatedMedia itemscope itemtype=http://schema.org/ImageObject>
+<div class=img style=background-image:url(/img/2021-05-27-launcher-2.webp)>
+<img itemprop=thumbnail src=/img/2021-05-27-launcher-2.webp alt=launcher-2>
+</div>
+<a href=/img/2021-05-27-launcher-2.webp itemprop=contentUrl></a>
+<figcaption>
+<p>launcher-2</p>
+</figcaption>
+</figure>
+</div>
+<div class=box style=max-width:110px>
+<figure itemprop=associatedMedia itemscope itemtype=http://schema.org/ImageObject>
+<div class=img style=background-image:url(/img/2021-05-27-launcher-3.webp)>
+<img itemprop=thumbnail src=/img/2021-05-27-launcher-3.webp alt=launcher-3>
+</div>
+<a href=/img/2021-05-27-launcher-3.webp itemprop=contentUrl></a>
+<figcaption>
+<p>launcher-3</p>
+</figcaption>
+</figure>
+</div>
+<div class=box style=max-width:110px>
+<figure itemprop=associatedMedia itemscope itemtype=http://schema.org/ImageObject>
+<div class=img style=background-image:url(/img/2021-05-27-launcher-4.webp)>
+<img itemprop=thumbnail src=/img/2021-05-27-launcher-4.webp alt=launcher-4>
+</div>
+<a href=/img/2021-05-27-launcher-4.webp itemprop=contentUrl></a>
+<figcaption>
+<p>launcher-4</p>
+</figcaption>
+</figure>
+</div>
+</div>
+<script src=https://code.jquery.com/jquery-1.12.4.min.js integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin=anonymous></script>
+<script src=/js/load-photoswipe.js></script>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin=anonymous>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin=anonymous>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin=anonymous></script>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div></p><h2 id=todo>todo</h2><p>见<a href=https://trello.com/b/qkqzqWLU/%E5%8D%9A%E5%AE%A2 target=_blank rel="nofollow noreferrer noopener">博客-Trello</a>。</p></div></article><div class=pagination><div class=prev><a href=https://475300.github.io/%E5%8C%86%E5%8C%86/>Previous Post</a></div><div class=next><a href=https://475300.github.io/%E6%98%8E%E6%98%8E%E7%99%BD%E7%99%BD%E4%B8%80%E6%9D%A1%E8%B7%AF%E4%B8%87%E4%B8%87%E5%8D%83%E5%8D%83%E4%B8%8D%E8%82%AF%E4%BF%AE/>Next Post</a></div></div></main><footer class=site-footer><span class=left><a href=/authors>Authors</a>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div>
+</p>
+<h2 id=todo>todo</h2>
+<p>见<a href=https://trello.com/b/qkqzqWLU/%E5%8D%9A%E5%AE%A2 target=_blank rel="nofollow noreferrer noopener">博客-Trello</a>。</p>
+</div>
+</article>
+<div class=pagination>
+<div class=prev> <a href=https://475300.github.io/%E5%8C%86%E5%8C%86/>Previous Post</a> </div>
+<div class=next> <a href=https://475300.github.io/%E6%98%8E%E6%98%8E%E7%99%BD%E7%99%BD%E4%B8%80%E6%9D%A1%E8%B7%AF%E4%B8%87%E4%B8%87%E5%8D%83%E5%8D%83%E4%B8%8D%E8%82%AF%E4%BF%AE/>Next Post</a> </div>
+</div>
+</main><footer class=site-footer>
+<span class=left>
+<a href=/authors>Authors</a>
 .
-<a href=/tags>Tags</a></span>
-<span class=right><em>乐土为家</em></span></footer></body></html>
+<a href=/tags>Tags</a>
+</span>
+<span class=right>
+<em>乐土为家</em>
+</span>
+</footer>
+</body>
+</html>

@@ -1,5 +1,76 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><title>业界就是这样做的 - 乐土为家</title><meta name=description content="周五的时候，一个业务方给我提了个关闭云存储过期提醒推送的需求。经过来回多次的沟通，终于弄清楚了客户遇到的问题，即：如果用户为某设备开通了续订"><link rel=canonical href=https://475300.github.io/%E4%BA%A7%E5%93%81/%E4%B8%9A%E7%95%8C%E5%B0%B1%E6%98%AF%E8%BF%99%E6%A0%B7%E5%81%9A%E7%9A%84/><meta property="og:title" content="业界就是这样做的"><meta property="og:type" content="article"><meta property="og:url" content="https://475300.github.io/%E4%BA%A7%E5%93%81/%E4%B8%9A%E7%95%8C%E5%B0%B1%E6%98%AF%E8%BF%99%E6%A0%B7%E5%81%9A%E7%9A%84/"><meta property="og:description" content="周五的时候，一个业务方给我提了个关闭云存储过期提醒推送的需求。经过来回多次的沟通，终于弄清楚了客户遇到的问题，即：如果用户为某设备开通了续订"><meta property="og:site_name" content="乐土为家"><link rel=stylesheet href=https://475300.github.io/css/main.min.46626abaa02257c4c323c7d2f1f872e4a75032f4ab4bea8ceb62daf52bfc81a2.css integrity="sha256-RmJquqAiV8TDI8fS8fhy5KdQMvSrS+qM62La9Sv8gaI="><meta name=generator content="Hugo 0.83.1"><script type=module src=https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js></script><script nomodule src=https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js></script></head><body><header class=site-header><nav class=site-nav role=navigation aria-label=breadcrumb><ol itemscope itemtype=https://schema.org/BreadcrumbList class=breadcrumb><li class=breadcrumb-item itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemtype=https://schema.org/Thing itemprop=item href=https://475300.github.io/><span itemprop=name>乐土为家</span></a><meta itemprop=position content="0"></li>/<li class=breadcrumb-item itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemtype=https://schema.org/Thing itemprop=item href=https://475300.github.io/%E4%BA%A7%E5%93%81/><span itemprop=name>产品</span></a><meta itemprop=position content="0"></li>/<li class="breadcrumb-item active hidden" aria-current=page itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemtype=https://schema.org/Thing itemprop=item href=https://475300.github.io/%E4%BA%A7%E5%93%81/%E4%B8%9A%E7%95%8C%E5%B0%B1%E6%98%AF%E8%BF%99%E6%A0%B7%E5%81%9A%E7%9A%84/><span itemprop=name>业界就是这样做的</span></a><meta itemprop=position content="1"></li></ol></nav><h1 class="site-title hidden"><a href=https://475300.github.io/>乐土为家</a></h1></header><main id=content><article role=article class="content post h-entry" itemscope itemtype=http://schema.org/BlogPosting><header class=post-header><h2 class=post-title itemprop="name headline">业界就是这样做的</h2><span class=post-meta><time class=date-published datetime=2021-05-30T20:31:33+07:00 itemprop=datePublished>2021.5.30，星期天</time>
-<span><ul id=authors><li><a href=https://475300.github.io/authors/sajiner>@sajiner</a></li></ul></span></span></header><div class=post-content itemprop=articleBody><p>周五的时候，一个业务方给我提了个关闭云存储过期提醒推送的需求。经过来回多次的沟通，终于弄清楚了客户遇到的问题，即：如果用户为某设备开通了续订服务，设备移除后，并不会关闭该服务，并且也没有提供给开发者可以关闭的接口。</p><p>既然客户认为云存储功能是必须的，那通过关闭服务到期提醒的消息来解决问题，显然是不合理的。</p><p>我又问业务方既然服务是绑定设备的，为什么设备被移除后，其关联的服务没有关闭呢？他说是 IPC 那边的产品定义的。我们又找了 IPC 的产品了解原因，开始的时候他用视频用户购买 VIP 会员举例，说只要用户开通了续订服务，不管看不看 VIP 视频， 到期了就会自定扣费。这样的解释显然是不合理的，VIP 会员的服务是和用户账号绑定的，账号是唯一的；而云存储服务是关联设备的，用户移除设备后，云存储服务也就不可用了，该服务应该一起被关闭才更合理些。来回多次交流后，他说行业内 80% 以上的厂商都是这样做的。。。。。。</p><p>业内如此我们就得如此吗？的确，“业界就是这样做的”在项目过程中，可以减少很多的争执，产品交付后也不会有大的失误。借鉴可以，但不要无脑抄呀，更不该只抄个半成品</p></div></article><div class=pagination></div></main><footer class=site-footer><span class=left><a href=/authors>Authors</a>
+<!doctype html><html lang=zh-cn><head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<title>业界就是这样做的 - 乐土为家</title>
+<meta name=description content="周五的时候，一个业务方给我提了个关闭云存储过期提醒推送的需求。经过来回多次的沟通，终于弄清楚了客户遇到的问题，即：如果用户为某设备开通了续订">
+<link rel=canonical href=https://475300.github.io/%E4%BA%A7%E5%93%81/%E4%B8%9A%E7%95%8C%E5%B0%B1%E6%98%AF%E8%BF%99%E6%A0%B7%E5%81%9A%E7%9A%84/>
+<meta property="og:title" content="业界就是这样做的">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://475300.github.io/%E4%BA%A7%E5%93%81/%E4%B8%9A%E7%95%8C%E5%B0%B1%E6%98%AF%E8%BF%99%E6%A0%B7%E5%81%9A%E7%9A%84/">
+<meta property="og:description" content="周五的时候，一个业务方给我提了个关闭云存储过期提醒推送的需求。经过来回多次的沟通，终于弄清楚了客户遇到的问题，即：如果用户为某设备开通了续订">
+<meta property="og:site_name" content="乐土为家">
+<link rel=stylesheet href=https://475300.github.io/css/main.min.46626abaa02257c4c323c7d2f1f872e4a75032f4ab4bea8ceb62daf52bfc81a2.css integrity="sha256-RmJquqAiV8TDI8fS8fhy5KdQMvSrS+qM62La9Sv8gaI=">
+<meta name=generator content="Hugo 0.86.1">
+<script type=module src=https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js></script>
+<script nomodule src=https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js></script>
+</head>
+<body><header class=site-header>
+<nav class=site-nav role=navigation aria-label=breadcrumb>
+<ol itemscope itemtype=https://schema.org/BreadcrumbList class=breadcrumb><li class=breadcrumb-item itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem>
+<a itemtype=https://schema.org/Thing itemprop=item href=https://475300.github.io/>
+<span itemprop=name>乐土为家</span>
+</a>
+<meta itemprop=position content="0">
+</li>/<li class=breadcrumb-item itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem>
+<a itemtype=https://schema.org/Thing itemprop=item href=https://475300.github.io/%E4%BA%A7%E5%93%81/>
+<span itemprop=name>产品</span>
+</a>
+<meta itemprop=position content="0">
+</li>/<li class="breadcrumb-item active hidden" aria-current=page itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem>
+<a itemtype=https://schema.org/Thing itemprop=item href=https://475300.github.io/%E4%BA%A7%E5%93%81/%E4%B8%9A%E7%95%8C%E5%B0%B1%E6%98%AF%E8%BF%99%E6%A0%B7%E5%81%9A%E7%9A%84/>
+<span itemprop=name>业界就是这样做的</span>
+</a>
+<meta itemprop=position content="1">
+</li></ol>
+</nav>
+<h1 class="site-title hidden">
+<a href=https://475300.github.io/>乐土为家</a>
+</h1>
+</header>
+<main id=content>
+<article role=article class="content post h-entry" itemscope itemtype=http://schema.org/BlogPosting>
+<header class=post-header>
+<h2 class=post-title itemprop="name headline">业界就是这样做的</h2>
+<span class=post-meta>
+<time class=date-published datetime=2021-05-30T20:31:33+07:00 itemprop=datePublished>
+2021.5.30，星期天
+</time>
+<span>
+<ul id=authors>
+<li> <a href=https://475300.github.io/authors/sajiner>@sajiner</a> </li>
+</ul>
+</span>
+</span>
+</header>
+<div class=post-content itemprop=articleBody>
+<p>周五的时候，一个业务方给我提了个关闭云存储过期提醒推送的需求。经过来回多次的沟通，终于弄清楚了客户遇到的问题，即：如果用户为某设备开通了续订服务，设备移除后，并不会关闭该服务，并且也没有提供给开发者可以关闭的接口。</p>
+<p>既然客户认为云存储功能是必须的，那通过关闭服务到期提醒的消息来解决问题，显然是不合理的。</p>
+<p>我又问业务方既然服务是绑定设备的，为什么设备被移除后，其关联的服务没有关闭呢？他说是 IPC 那边的产品定义的。我们又找了 IPC 的产品了解原因，开始的时候他用视频用户购买 VIP 会员举例，说只要用户开通了续订服务，不管看不看 VIP 视频， 到期了就会自定扣费。这样的解释显然是不合理的，VIP 会员的服务是和用户账号绑定的，账号是唯一的；而云存储服务是关联设备的，用户移除设备后，云存储服务也就不可用了，该服务应该一起被关闭才更合理些。来回多次交流后，他说行业内 80% 以上的厂商都是这样做的。。。。。。</p>
+<p>业内如此我们就得如此吗？的确，“业界就是这样做的”在项目过程中，可以减少很多的争执，产品交付后也不会有大的失误。借鉴可以，但不要无脑抄呀，更不该只抄个半成品</p>
+</div>
+</article>
+<div class=pagination>
+</div>
+</main><footer class=site-footer>
+<span class=left>
+<a href=/authors>Authors</a>
 .
-<a href=/tags>Tags</a></span>
-<span class=right><em>乐土为家</em></span></footer></body></html>
+<a href=/tags>Tags</a>
+</span>
+<span class=right>
+<em>乐土为家</em>
+</span>
+</footer>
+</body>
+</html>
